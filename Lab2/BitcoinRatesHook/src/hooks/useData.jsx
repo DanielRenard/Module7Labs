@@ -3,7 +3,6 @@ import{ useEffect, useState } from "react"
 export function useData(url) {
     // state variable for holding fetched json data
     const [rate, setRate] = useState(null);
-
        
     useEffect(() => {
         if (url) {

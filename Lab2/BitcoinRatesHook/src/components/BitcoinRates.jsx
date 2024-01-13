@@ -13,8 +13,8 @@ function BitcoinRates() {
     </option>
   ));
 
-  const data = useData(`https://www.boredapi.com/api/activity?participants=${currency}`)
-  const rate = data ? data.json.bitcoin[currency.toLowerCase()]: 'not found'
+  const data = useData(`https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=${currency}`)
+  const rate = data ? data.bitcoin[currency.toLowerCase()]: 'not found'
 
   // useEffect(() => {
   //   console.log("Running Effect");
