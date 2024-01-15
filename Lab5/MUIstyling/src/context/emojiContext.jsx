@@ -5,7 +5,7 @@ const EmojiContext = createContext();
 
 export const EmojiProvider = (props) => {
 
-    const [mood, setCurrentEmoji] = useState('😁');
+    const [mood, setCurrentEmoji] = useState('This is a Button');
 
     const handleUpdateEmoji = () => {
         let newMood = '😁';
