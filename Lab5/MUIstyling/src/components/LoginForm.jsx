@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 // import { MyThemeContext } from "../context/ThemeContext";
 import { useUserContext } from "../context/userContext";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Button, Container, TextField, makeStyles } from "@mui/material";
 import Box from "@mui/material/Box";
 import FormControl from "@mui/material/FormControl";
@@ -13,10 +13,10 @@ function LoginForm() {
 
   const {currentUser, handleUpdateUser} = useUserContext()
   // const { theme, dakMode } = useContext(MyThemeContext);
-
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
+    // console.log("button clicked")
     e.preventDefault();
     if (userPassword.length < 5) {
       setSubmitResult("Password must be at least 5 characters long.");
@@ -26,9 +26,9 @@ function LoginForm() {
       setSubmitResult("Successful login");
       handleUpdateUser({ email: userEmail})
       navigate("/HomePage");
-    }
+    } 
+    // checking submit event values = console.log(`user email: ${userEmail}. user password: ${userPassword}`)
   };
-
   if (currentUser.email) return (
     <div className={darkMode ? 'dark' : 'light'}>
       <p>Welcome {currentUser.email}!</p>
@@ -40,7 +40,7 @@ function LoginForm() {
       <form noValidate autoComplete="off" onSubmit={handleSubmit}>
         <TextField
           label="Email"
-          vairant="outlined"
+          variant="outlined"
           color="secondary"
           required
           type="email"
@@ -51,7 +51,7 @@ function LoginForm() {
 
         <TextField
           label="Password"
-          vairant="outlined"
+          variant="outlined"
           color="secondary"
           required
           type="password"
@@ -63,9 +63,10 @@ function LoginForm() {
         {
           // showButton ? <button disabled={!showButton}>Log In</button> : null
         }
-        <Button variant="contained">Log In</Button>
+        {/* <Button variant="contained" type="submit">Log In</Button> */}
         <p>{submitResult}</p>
       </form>
+      <Button variant="contained" onClick={ handleSubmit}>Log In</Button>
     </Container>
   );
 }
