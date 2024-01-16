@@ -11,7 +11,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 
 export default function NavBar(){
-//   const {theme} = useContext(MyThemeContext)
+  const {theme} = useContext(MyThemeContext)
 
 //   return (
 //     <nav className="navbar">

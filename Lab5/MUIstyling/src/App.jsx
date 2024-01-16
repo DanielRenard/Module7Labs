@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import './App.css'
 import { EmojiProvider } from './context/emojiContext'
-import MyThemeProvider from './context/ThemeContext'
+
 import AppRoutes from './routes/AppRoutes'
 import NavBar from './components/NavBar'
+import { UserProvider } from './context/userContext'
 // import './styles/navBar.css'
 
 function App() {
@@ -11,10 +12,12 @@ function App() {
   return (
     <>
       <EmojiProvider>
-        <MyThemeProvider>
-          <NavBar/>
-          <AppRoutes/>
-        </MyThemeProvider>
+
+          <UserProvider>
+            <NavBar/>
+            <AppRoutes/>
+          </UserProvider>
+
       </EmojiProvider>
     </>
   )

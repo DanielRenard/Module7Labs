@@ -1,7 +1,7 @@
 import React, { useContext, createContext, useState } from "react"
 
 // 1. Create the context
-const UserContext = React.createContext();
+const UserContext = createContext();
 // Custom provider component for this context.
 // Use it in App.jsx like <UserProvider>...</UserProvider>
 export const UserProvider = (props) => {
